@@ -10,7 +10,8 @@
     },
     "dependencies": {
         "body-parser": "^1.17.2",
-        "express": "^4.15.3"
+        "express": "^4.15.3",
+        "mysql": "^2.14.1"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.1",
