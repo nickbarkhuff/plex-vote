@@ -6,17 +6,18 @@ const logErrors = (err) => {
 
 conn.query(`
     CREATE TABLE IF NOT EXISTS users(
-        foo VARCHAR(20),
-        bar VARCHAR(20),
-        baz VARCHAR(20)
+        id       int          NOT NULL PRIMARY KEY,
+        username varchar(255) NOT NULL,
+        password varchar(255) NOT NULL
     )
 `, logErrors);
 
 conn.query(`
     CREATE TABLE IF NOT EXISTS votes(
-        foo VARCHAR(20),
-        bar VARCHAR(20),
-        baz VARCHAR(20)
+        id       int          NOT NULL PRIMARY KEY,
+        user_id  int          NOT NULL,
+        media_id varchar(255) NOT NULL,
+        rating   int          NOT NULL
     )
 `, logErrors);
 
