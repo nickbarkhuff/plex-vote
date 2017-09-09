@@ -1,8 +1,8 @@
 module.exports = {
-    port: 0,
+    port: 3000,
     plex: {
         host: "",
-        port: "",
+        port: "32400",
         token: ""
     },
     mysql: {
