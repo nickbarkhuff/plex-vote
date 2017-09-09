@@ -5,7 +5,7 @@
         "dev": "nodemon server & webpack-dev-server --inline --hot --config webpack.config.dev.js",
         "build": "webpack -p --progress --config webpack.config.prod.js",
         "start": "node server",
-        "init": "npm i && npm run build && node database/init",
+        "init": "npm i && npm run build && node database/create-tables",
         "test": "node test"
     },
     "dependencies": {
