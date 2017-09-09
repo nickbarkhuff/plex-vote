@@ -1,5 +1,5 @@
 module.exports = {
-    name: "Database Connection",
+    name: "MySQL Connection",
     promise: new Promise((resolve, reject) => {
         const config = require("../config");
         const mysql = require("mysql");
