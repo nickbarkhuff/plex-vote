@@ -6,7 +6,8 @@
         "build": "webpack -p --progress --config webpack.config.prod.js",
         "start": "node server",
         "init": "npm i && npm run build && node database/create-tables",
-        "test": "node test"
+        "test": "node test",
+        "refresh": "node database/drop-tables && node database/create-tables"
     },
     "dependencies": {
         "body-parser": "^1.17.2",
