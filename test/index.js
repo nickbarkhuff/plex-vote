@@ -26,8 +26,8 @@ fs.readdir(__dirname, (err, files) => {
                 .then(() => {
                     console.log(colors.green, "* " + test.name + ": Success");
                 })
-                .catch((error) => {
-                    console.log(colors.red, "* " + test.name + ": " + error);
+                .catch((err) => {
+                    console.log(colors.red, "* " + test.name + ": " + err);
                 });
         });
 });
