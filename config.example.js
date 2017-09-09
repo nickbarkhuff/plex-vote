@@ -4,5 +4,11 @@ module.exports = {
         host: "",
         port: "",
         token: ""
+    },
+    database: {
+        host: "",
+        name: "",
+        username: "",
+        password: ""
     }
 };
