@@ -3,7 +3,10 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "nodemon server & webpack-dev-server --inline --hot --config webpack.config.dev.js",
-        "build": "webpack -p --progress --config webpack.config.prod.js"
+        "build": "webpack -p --progress --config webpack.config.prod.js",
+        "start": "node server",
+        "init": "npm i && npm run build",
+        "test": "node test-config.js"
     },
     "dependencies": {
         "body-parser": "^1.17.2",
