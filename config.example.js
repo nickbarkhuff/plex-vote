@@ -5,10 +5,10 @@ module.exports = {
         port: "",
         token: ""
     },
-    database: {
+    mysql: {
         host: "",
-        name: "",
-        username: "",
-        password: ""
+        user: "",
+        password: "",
+        database: ""
     }
 };
