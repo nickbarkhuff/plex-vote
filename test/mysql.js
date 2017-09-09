@@ -1,10 +1,8 @@
 module.exports = {
     name: "MySQL Connection",
     promise: new Promise((resolve, reject) => {
-        const config = require("../config");
-        const mysql = require("mysql");
-        const conn = mysql.createConnection(config.mysql);
-        conn.connect(err => err ? reject(err) : resolve());
+        const conn = require("../database/connection");
+        conn.query("SELECT version()", err => err ? reject(err) : resolve());
         conn.end();
     })
 };
