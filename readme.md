@@ -18,7 +18,7 @@ You will need to specify the following:
 * MySQL connection settings
 * A secret (Used for password hashing and JWT signatures)
 
-To test that the app can connect to Plex and MySQL, run:
+To test your configuration, run:
 
 `npm run test`
 
