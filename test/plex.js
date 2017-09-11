@@ -4,7 +4,14 @@ module.exports = {
         const plexFetch = require("../plex/fetch");
 
         plexFetch("/")
-            .then(resolve)
+            .then((res) => {
+                if(res.status === 401){
+                    reject("Plex token is invalid.");
+                    return;
+                }
+
+                resolve();
+            })
             .catch(reject);
     })
 };
