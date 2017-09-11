@@ -1,7 +1,11 @@
 const router = require("express").Router();
 
 // Routes
-router.use("/example", require("./example-api"));
+router.use("/login", require("./login"));
+router.use("/register", require("./register"));
+router.use("/reset-password", require("./reset-password"));
+router.use("/vote", require("./vote"));
+router.use("/votes", require("./votes"));
 
 // Send success message when connected to root
 router.get("/", (req, res) => res.send("Connected to API!"));
