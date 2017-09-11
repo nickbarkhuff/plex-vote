@@ -3,7 +3,8 @@ module.exports = {
     plex: {
         host: "",
         port: "",
-        token: ""
+        token: "",
+        section: ""
     },
     mysql: {
         host: "",
