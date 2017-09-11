@@ -14,7 +14,8 @@
         "express": "^4.15.3",
         "jsonwebtoken": "^8.0.0",
         "mysql": "^2.14.1",
-        "node-fetch": "^1.7.3"
+        "node-fetch": "^1.7.3",
+        "xml2json": "^0.11.0"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.1",
