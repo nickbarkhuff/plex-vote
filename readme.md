@@ -12,7 +12,11 @@ After cloning the repository, copy the example config file as "config.js":
 
 `cp config.example.js config.js`
 
-You will need to specify the port to run the app on, your Plex server settings, and MySQL connection settings.
+You will need to specify the following:
+* A port to run the app on
+* Plex server settings
+* MySQL connection settings
+* A secret (Used for password hashing and JWT signatures)
 
 To test that the app can connect to Plex and MySQL, run:
 
