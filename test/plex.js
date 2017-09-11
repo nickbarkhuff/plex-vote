@@ -3,7 +3,7 @@ module.exports = {
     promise: new Promise((resolve, reject) => {
         const plexFetch = require("../plex/fetch");
 
-        plexFetch()
+        plexFetch("/")
             .then(resolve)
             .catch(reject);
     })
