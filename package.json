@@ -10,6 +10,7 @@
         "refresh": "node database/drop-tables && node database/create-tables"
     },
     "dependencies": {
+        "bcrypt": "^1.0.3",
         "body-parser": "^1.17.2",
         "express": "^4.15.3",
         "jsonwebtoken": "^8.0.0",
