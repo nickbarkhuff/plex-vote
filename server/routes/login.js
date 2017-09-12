@@ -1,5 +1,14 @@
 const router = require("express").Router();
+const login = require("../../auth/login");
 
-router.get("/", (req, res) => res.send("Login API"));
+router.post("/", (req, res) => {
+    login(req.body.username, req.body.password)
+    .then((token) => {
+        res.send({success: true, token});
+    })
+    .catch((error) => {
+        res.send({success: false, error})
+    });
+});
 
 module.exports = router;
