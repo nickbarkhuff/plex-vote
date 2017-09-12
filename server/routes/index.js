@@ -3,7 +3,6 @@ const router = require("express").Router();
 // Routes
 router.use("/login", require("./login"));
 router.use("/register", require("./register"));
-router.use("/reset-password", require("./reset-password"));
 router.use("/votes", require("./votes"));
 
 // Send success message when connected to root
