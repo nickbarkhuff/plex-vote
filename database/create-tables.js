@@ -6,7 +6,7 @@ const logErrors = (err) => {
 
 conn.query(`
     CREATE TABLE IF NOT EXISTS users(
-        id       int          NOT NULL PRIMARY KEY,
+        id       int          NOT NULL AUTO_INCREMENT PRIMARY KEY,
         username varchar(255) NOT NULL,
         password varchar(255) NOT NULL
     )
@@ -14,7 +14,7 @@ conn.query(`
 
 conn.query(`
     CREATE TABLE IF NOT EXISTS votes(
-        id       int          NOT NULL PRIMARY KEY,
+        id       int          NOT NULL AUTO_INCREMENT PRIMARY KEY,
         user_id  int          NOT NULL,
         media_id varchar(255) NOT NULL,
         rating   int          NOT NULL
