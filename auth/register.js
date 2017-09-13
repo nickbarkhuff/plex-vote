@@ -2,12 +2,20 @@ const conn = require("../database/connection");
 const token = require("./token");
 const hash = require("./hash");
 
+const PASSWORD_MIN_LENGTH = 8;
+
 module.exports = (username, password) => {
     return new Promise((resolve, reject) => {
 
         // Check that a username and a password were provided
         if(!username || !password){
             reject("Username or password not specified");
+            return;
+        }
+
+        // Check that password is at least minimum length
+        if(password.length < PASSWORD_MIN_LENGTH){
+            reject(`Password is too short (must be at least ${PASSWORD_MIN_LENGTH} characters long)`);
             return;
         }
 
