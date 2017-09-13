@@ -7,7 +7,13 @@ const RATING_MAX = 5;
 
 router.get("/", (req, res) => {
     conn.query(`
-        SELECT * FROM votes
+        SELECT
+            users.username,
+            media_id AS media,
+            rating
+        FROM votes
+        INNER JOIN users
+        ON users.id = user_id
     `, (err, results) => {
 
         // Check for DB errors
