@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const token = require("../../auth/token");
 const conn = require("../../database/connection");
+const wilson = require("../../wilson-score");
 
 const RATING_MIN = 1;
 const RATING_MAX = 5;
@@ -8,8 +9,8 @@ const RATING_MAX = 5;
 router.get("/", (req, res) => {
     conn.query(`
         SELECT
-            users.username,
             media_id AS media,
+            users.username,
             rating
         FROM votes
         INNER JOIN users
@@ -22,8 +23,33 @@ router.get("/", (req, res) => {
             return;
         }
 
+        // Group votes
+        let grouped = {};
+        results.forEach((item) => {
+            const vote = {
+                username: item.username,
+                rating: item.rating
+            };
+            if(grouped[item.media]){
+                grouped[item.media].votes.push(vote);
+            }
+            else{
+                grouped[item.media] = {
+                    score: null,
+                    votes: [vote]
+                };
+            }
+        });
+
+        // Calculate ratings
+        Object.keys(grouped).forEach((key) => {
+            const positive = grouped[key].votes.reduce((acc, cur) => acc + cur.rating, 0);
+            const total = grouped[key].votes.length * RATING_MAX;
+            grouped[key].score = wilson(positive, total);
+        });
+
         // Success
-        res.send(results);
+        res.send(grouped);
     });
 });
 
