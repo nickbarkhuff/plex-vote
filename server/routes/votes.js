@@ -6,7 +6,19 @@ const RATING_MIN = 1;
 const RATING_MAX = 5;
 
 router.get("/", (req, res) => {
-    res.end();
+    conn.query(`
+        SELECT * FROM votes
+    `, (err, results) => {
+
+        // Check for DB errors
+        if(err){
+            res.status(500).end();
+            return;
+        }
+
+        // Success
+        res.send(results);
+    });
 });
 
 router.post("/", (req, res) => {
