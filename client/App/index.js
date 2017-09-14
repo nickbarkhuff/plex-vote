@@ -39,6 +39,10 @@ class App extends React.Component{
                 });
             });
         });
+
+        this.ps.subscribe("fetch error", (error) => {
+            alert("You don't seem to be connected to the internet.\n\n" + error);
+        });
     }
 
     render(){
