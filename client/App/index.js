@@ -28,9 +28,15 @@ class App extends React.Component{
                     if(res.success){
                         this.setState({loggedIn: true});
                         window.localStorage.jwt = res.jwt;
+                        this.ps.publish("login success");
+                    }
+                    else{
+                        this.ps.publish("login failure");
                     }
                 })
-                .catch(console.error);
+                .catch((error) => {
+                    this.ps.publish("fetch error", error);
+                });
             });
         });
     }
