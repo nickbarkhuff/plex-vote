@@ -17,38 +17,22 @@ class App extends React.Component{
         };
 
         this.ps = new PubSub();
-
-        this.ps.subscribe("login", (data) => {
-            fetch("/api/login", post({
-                username: data.username,
-                password: data.password
-            }))
-            .then(res => res.json())
-            .then(res => {
-                if(res.success){
-                    this.setState({loggedIn: true});
-                    window.localStorage.jwt = res.jwt;
-                }
-            })
-            .catch(console.error);
+        ["login", "register"].forEach((action) => {
+            this.ps.subscribe(action, (data) => {
+                fetch("/api/" + action, post({
+                    username: data.username,
+                    password: data.password
+                }))
+                .then(res => res.json())
+                .then(res => {
+                    if(res.success){
+                        this.setState({loggedIn: true});
+                        window.localStorage.jwt = res.jwt;
+                    }
+                })
+                .catch(console.error);
+            });
         });
-
-        this.ps.subscribe("register", data => {
-            fetch("/api/register", post({
-                username: data.username,
-                password: data.password
-            }))
-            .then(res => res.json())
-            .then(res => {
-                if(res.success){
-                    this.setState({loggedIn: true});
-                    window.localStorage.jwt = res.jwt;
-                }
-            })
-            .catch(console.error);
-        });
-
-        window.ps = this.ps;
     }
 
     render(){
