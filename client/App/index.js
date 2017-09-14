@@ -31,7 +31,7 @@ class App extends React.Component{
                         this.ps.publish("login success");
                     }
                     else{
-                        this.ps.publish("login failure");
+                        this.ps.publish("login failure", res.error);
                     }
                 })
                 .catch((error) => {
