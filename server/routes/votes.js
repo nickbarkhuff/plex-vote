@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const token = require("../../auth/token");
 const conn = require("../../database/connection");
-const wilson = require("../../wilson-score");
+const {wilson} = require("../../lib");
 
 const RATING_MIN = 1;
 const RATING_MAX = 5;

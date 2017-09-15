@@ -1,9 +1,9 @@
 import "./style.scss";
 
 import React from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 
-import {PubSub, redirect, post} from "./lib";
+import {PubSub, post} from "../../lib";
 
 import Home from "./Home";
 import Login from "./Login";
@@ -48,6 +48,8 @@ class App extends React.Component{
     }
 
     render(){
+        const redirect = (condition, path, jsx) => (condition ? <Redirect to={path}/> : jsx);
+
         return (
             <Switch>
                 <Route path="/results" render={() => <Results ps={this.ps}/>}/>
