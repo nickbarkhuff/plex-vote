@@ -43,7 +43,10 @@ module.exports = {
                     },
                     {
                         loader: "sass-loader",
-                        options: {sourceMap: true}
+                        options: {
+                            sourceMap: true,
+                            includePaths: [__dirname + "/client"]
+                        }
                     }
                 ]
             },
