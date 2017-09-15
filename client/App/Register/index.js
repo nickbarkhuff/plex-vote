@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import React from "react";
 
 class Register extends React.Component{
@@ -6,7 +8,9 @@ class Register extends React.Component{
     }
 
     render(){
-        return <div>Register</div>;
+        return (
+            <div id="register">Register</div>
+        );
     }
 }
 

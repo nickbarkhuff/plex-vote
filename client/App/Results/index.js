@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import React from "react";
 
 class Results extends React.Component{
@@ -6,7 +8,9 @@ class Results extends React.Component{
     }
 
     render(){
-        return <div>Results</div>;
+        return (
+            <div id="results">Results</div>
+        );
     }
 }
 

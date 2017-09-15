@@ -1,3 +1,5 @@
+import "./style.scss";
+
 import React from "react";
 
 class Login extends React.Component{
@@ -6,7 +8,9 @@ class Login extends React.Component{
     }
 
     render(){
-        return <div>Login</div>;
+        return (
+            <div id="login">Login</div>
+        );
     }
 }
 
