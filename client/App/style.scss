@@ -1,0 +1,17 @@
+@import "../vars";
+
+*{
+  box-sizing: border-box;
+}
+
+html, body, #root{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+#root{
+  background-color: $background;
+  color: $color;
+  font-family: $font;
+}
