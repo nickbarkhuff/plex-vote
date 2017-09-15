@@ -5,6 +5,9 @@ import {Switch, Route, Redirect} from "react-router-dom";
 
 import {PubSub, post} from "../../lib";
 
+import LayoutForm from "./LayoutForm";
+import LayoutPage from "./LayoutPage";
+
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
@@ -49,13 +52,24 @@ class App extends React.Component{
 
     render(){
         const redirect = (condition, path, jsx) => (condition ? <Redirect to={path}/> : jsx);
-
         return (
             <Switch>
-                <Route path="/results" render={() => <Results ps={this.ps}/>}/>
-                <Route path="/register" render={() => <Register ps={this.ps}/>}/>
-                <Route path="/login" render={() => redirect(this.state.loggedIn, "/", <Login ps={this.ps}/>)}/>
-                <Route path="/" render={() => redirect(!this.state.loggedIn, "/login", <Home ps={this.ps}/>)}/>
+                <Route path="/(login|register)" render={() =>
+                    <LayoutForm>
+                        <Switch>
+                            <Route path="/register" render={() => <Register ps={this.ps}/>}/>
+                            <Route path="/login" render={() => redirect(this.state.loggedIn, "/", <Login ps={this.ps}/>)}/>
+                        </Switch>
+                    </LayoutForm>
+                }/>
+                <Route render={() =>
+                    <LayoutPage>
+                        <Switch>
+                            <Route path="/results" render={() => <Results ps={this.ps}/>}/>
+                            <Route path="/" render={() => redirect(!this.state.loggedIn, "/login", <Home ps={this.ps}/>)}/>
+                        </Switch>
+                    </LayoutPage>
+                }/>
             </Switch>
         );
     }
